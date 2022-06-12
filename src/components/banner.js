@@ -5,7 +5,7 @@ export const Banner = () => {
   let movie = movies.results[0];
   return (
     <>
-      {movie === "" ? (
+      {movie.length === "" ? (
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>

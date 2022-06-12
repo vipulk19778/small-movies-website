@@ -1,3 +1,7 @@
+body::-webkit-scrollbar {
+  width: 0;
+}
+
 .banner-card {
   width: 100vw;
   margin-top: 1vh;
@@ -66,13 +70,18 @@
   overflow: auto;
 }
 
-@media screen and (max-width: 400px) {
+.favourites-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 468px) {
   .banner-card {
-    height: 50vh;
+    height: 45vh;
   }
 
   .banner-img {
-    height: 50vh;
+    height: 45vh;
   }
 
   .banner-title {
@@ -99,7 +108,7 @@
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 768px) {
+@media screen and (min-width: 468px) and (max-width: 768px) {
   .movies-card {
     width: 40vw;
     margin: 0.5rem;

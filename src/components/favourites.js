@@ -6,7 +6,6 @@ export const Favourites = () => {
   const [currGenre, setCurrGenre] = useState("All Genres");
   const [movie, setMovie] = useState([]);
   const [currText, setCurrText] = useState("");
-  const [limit, setLimit] = useState(5);
   const [curPage, setCurPage] = useState(1);
 
   let genreids = {
@@ -46,6 +45,8 @@ export const Favourites = () => {
   }, []);
 
   let filterArr = [];
+
+  const limit = 6;
 
   if (currText === "") {
     filterArr = movie;
@@ -120,7 +121,7 @@ export const Favourites = () => {
     <>
       <div className="main">
         <div className="row">
-          <div className="col-3">
+          <div className="col-12 col-md-3">
             <ul className="list-group favourites-genres">
               {genre.map((Genre, index) =>
                 currGenre === Genre ? (
@@ -131,6 +132,7 @@ export const Favourites = () => {
                       background: "#3f51b5",
                       color: "white",
                       fontWeight: "bold",
+                      minWidth: "150px",
                     }}
                   >
                     {Genre}
@@ -139,7 +141,11 @@ export const Favourites = () => {
                   <li
                     key={index}
                     className="list-group-item"
-                    style={{ background: "white", color: "#3f51b5" }}
+                    style={{
+                      background: "white",
+                      color: "#3f51b5",
+                      minWidth: "150px",
+                    }}
                     onClick={() => handleGenreChange(Genre)}
                   >
                     {Genre}
@@ -148,7 +154,7 @@ export const Favourites = () => {
               )}
             </ul>
           </div>
-          <div className="col-9 favourites-table">
+          <div className="col-12 col-md-9 favourites-table">
             <div className="row">
               <input
                 type="text"
@@ -156,13 +162,6 @@ export const Favourites = () => {
                 placeholder="Search"
                 value={currText}
                 onChange={(e) => setCurrText(e.target.value)}
-              />
-              <input
-                type="number"
-                className="input-group-text col"
-                placeholder="Rows Count"
-                value={limit}
-                onChange={(e) => setLimit(e.target.value)}
               />
             </div>
             <div className="row">
@@ -225,7 +224,7 @@ export const Favourites = () => {
               </table>
             </div>
             <nav aria-label="Page navigation example">
-              <ul className="pagination">
+              <ul className="pagination favourites-pagination">
                 {pagesArr.map((page, ind) => (
                   <li className="page-item" key={ind}>
                     <button
